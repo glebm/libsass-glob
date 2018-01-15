@@ -29,15 +29,11 @@ Sass_Import_List glob_importer(const char* cur_path, Sass_Importer_Entry cb, str
 
   // propagate error back to libsass
   if (matches.empty()) return NULL;
-  
+
   // get the cookie from importer descriptor
   // void* cookie = sass_importer_get_cookie(cb);
   // create a list to hold our import entries
   Sass_Import_List incs = sass_make_import_list(matches.size());
-  
-  // iterate over the list and print out the results
-  std::vector<FS::Entry*>::const_iterator it = matches.begin();
-  std::vector<FS::Entry*>::const_iterator end = matches.end();
 
   // attach import entry for each match
   size_t i = 0; while (i < matches.size()) {
